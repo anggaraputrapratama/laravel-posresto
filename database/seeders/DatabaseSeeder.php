@@ -14,9 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        /// membuat 10 data seed bisa diganti dengan jumlah data yang diingkan
-        \App\Models\User::factory(10)->create();
-
 
         \App\Models\User::factory()->create([
             'name' => 'Admin',
@@ -24,5 +21,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'role' => 'admin',
         ]);
+
+        /// membuat 10 data seed bisa diganti dengan jumlah data yang diingkan
+        \App\Models\User::factory(10)->create();
     }
 }
