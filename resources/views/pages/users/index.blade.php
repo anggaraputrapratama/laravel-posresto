@@ -98,25 +98,26 @@
                                                                 value="{{ csrf_token() }}" />
                                                             <button class="btn btn-sm btn-danger btn-icon confirm-delete">
                                                                 <i class="fas fa-times"
-                                                                    onclick="return confirm('Yakin hapus ')></i> Delete
+                                                                    onclick="return confirm('Yakin hapus?');"></i> Delete
+                                                                Delete
                                                             </button>
                                                         </form>
                                                     </div>
                                                 </td>
                                             </tr>
-@endforeach
+                                        @endforeach
 
 
                                     </table>
                                 </div>
                                 <div class="float-right">
-                                                                    {{ $users->withQueryString()->links() }}
-                                                    </div>
+                                    {{ $users->withQueryString()->links() }}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 @endsection
