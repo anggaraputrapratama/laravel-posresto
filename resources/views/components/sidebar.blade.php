@@ -29,6 +29,15 @@
                 <a class="nav-link" href="{{ route('users.index') }}"><i class="far fa-user"></i><span>Users</a>
             </li>
 
+            <li class='nav-item dropdown {{ Request::is('products') ? 'active' : '' }}'>
+                <a class="nav-link" href="{{ route('products.index') }}"><i class="fas fa-fire"></i><span>Products</a>
+            </li>
+
+            <li class='nav-item dropdown {{ Request::is('categories') ? 'active' : '' }}'>
+                <a class="nav-link" href="{{ route('categories.index') }}"><i
+                        class="fas fa-fire"></i><span>Categories</a>
+            </li>
+
         </ul>
     </aside>
 </div>

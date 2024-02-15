@@ -57,7 +57,7 @@
 
             <div class="text-center">
                 Don't have an account?
-                <a href="auth-register.html">Create One</a>
+                <a href="{{ route('register') }}">Create One</a>
                 </a>
             </div>
 
