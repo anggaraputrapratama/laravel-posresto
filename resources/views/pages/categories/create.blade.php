@@ -62,8 +62,10 @@
                             <div class="form-group">
                                 <label class="form-label">Photo Category</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" name="image"
-                                        @error('image') is-invalid @enderror>
+                                    <input type="file" class="form-control" name="image" id="imageInput"
+                                        onchange="previewImage()">
+                                    <img id="imagePreview" src="#" alt="Preview"
+                                        style="display:none; max-width: 100%;" />
                                 </div>
                                 @error('image')
                                     <div class="invalid-feedback">
@@ -87,4 +89,22 @@
 @endsection
 
 @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function previewImage() {
+            var input = document.getElementById('imageInput');
+            var preview = document.getElementById('imagePreview');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 @endpush

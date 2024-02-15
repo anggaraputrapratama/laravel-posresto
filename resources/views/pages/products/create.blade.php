@@ -99,8 +99,10 @@
                             <div class="form-group">
                                 <label class="form-label">Photo Product</label>
                                 <div>
-                                    <input type="file" class="form-control selectric" name="image"
-                                        @error('image') is-invalid @enderror>
+                                    <input type="file" class="form-control selectric" name="image" id="imageInput"
+                                        onchange="previewImage()" @error('image') is-invalid @enderror>
+                                    <img id="imagePreview" src="#" alt="Preview"
+                                        style="display:none; max-width: 50%;" />
                                 </div>
                                 @error('image')
                                     <div class="invalid-feedback">
@@ -108,6 +110,7 @@
                                     </div>
                                 @enderror
                             </div>
+
 
                             <div class="form-group mb-0">
                                 <label class="form-label w-100">Status</label>
@@ -156,4 +159,22 @@
 @endsection
 
 @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function previewImage() {
+            var input = document.getElementById('imageInput');
+            var preview = document.getElementById('imagePreview');
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 @endpush
