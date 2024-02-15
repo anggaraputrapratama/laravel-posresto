@@ -84,7 +84,7 @@
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
-                        <span id="registerButtonText">Login</span>
+                        <span id="registerButtonText">Register</span>
                         <span id="registerButtonLoader" class="d-none">
                             <i class="fas fa-spinner fa-spin"></i> Loading...
                         </span> </button>
